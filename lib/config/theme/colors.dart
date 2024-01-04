@@ -21,6 +21,7 @@ class AppColor {
   static const Color kBorderColor = Color.fromARGB(255, 226, 228, 229);
   static const Color kTransparent = Colors.transparent;
   static const Color kSnakbarBg = Color.fromRGBO(0, 0, 0, 0.8);
+  static const Color kDarkGreen = Color.fromRGBO(27, 66, 76, 1);
 
   /// buttons
   static const Color kSecondaryButtonColor = Color.fromRGBO(42, 104, 119, 1);
