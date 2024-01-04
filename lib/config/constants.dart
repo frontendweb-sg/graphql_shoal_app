@@ -8,5 +8,6 @@ class AppConstants {
   static const APP_LOGIN_URL = "/Account/SignIn";
 
   // constants
+  static const STORAGE_DEVICE_OPEN_FIRST_TIME = 'first_time';
   static const APP_AUTH_TOKEN = 'app_token';
 }

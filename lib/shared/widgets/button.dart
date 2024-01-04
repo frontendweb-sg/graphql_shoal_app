@@ -93,11 +93,12 @@ Widget filledButton(BuildContext context,
     height: height,
     child: ElevatedButton(
       onPressed: onPressed,
-      style: ButtonStyle(
-        elevation: MaterialStatePropertyAll(elevation),
-        backgroundColor: MaterialStatePropertyAll(bgColor!),
-        foregroundColor: MaterialStatePropertyAll(textColor!),
-      ),
+      style: style ??
+          ButtonStyle(
+            elevation: MaterialStatePropertyAll(elevation),
+            backgroundColor: MaterialStatePropertyAll(bgColor!),
+            foregroundColor: MaterialStatePropertyAll(textColor!),
+          ),
       child: child ?? textLabelLarge(context, label: label!, color: textColor),
     ),
   );
@@ -126,12 +127,13 @@ Widget outlineButton(
     height: height,
     child: OutlinedButton(
       onPressed: onPressed,
-      style: ButtonStyle(
-        foregroundColor: MaterialStatePropertyAll(bgColor!),
-        side: MaterialStatePropertyAll(
-          BorderSide(color: bgColor, style: BorderStyle.solid, width: 2),
-        ),
-      ),
+      style: style ??
+          ButtonStyle(
+            foregroundColor: MaterialStatePropertyAll(bgColor!),
+            side: MaterialStatePropertyAll(
+              BorderSide(color: bgColor, style: BorderStyle.solid, width: 2),
+            ),
+          ),
       child: child ?? textLabelLarge(context, label: label!, color: textColor),
     ),
   );
@@ -151,11 +153,12 @@ Widget textButton(
 }) {
   return TextButton(
     onPressed: onPressed,
+    style: style,
     child: child ??
         textLabelLarge(
           context,
           label: label!,
-          color: textColor,
+          color: bgColor,
         ),
   );
 }

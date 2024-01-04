@@ -23,14 +23,15 @@ Widget textHedlineLarge(
 /// Headline medium
 /// font-size: 24
 ///
-Widget textHedlineMedium(
-  BuildContext context, {
-  required String label,
-  Color? color = AppColor.kBodyText,
-  FontWeight? fontWeight = FontWeight.w600,
-}) {
+Widget textHedlineMedium(BuildContext context,
+    {required String label,
+    Color? color = AppColor.kBodyText,
+    FontWeight? fontWeight = FontWeight.w600,
+    TextAlign? align}) {
   return Text(
     label,
+    textAlign: align,
+    softWrap: true,
     style: Theme.of(context).textTheme.headlineMedium!.copyWith(
           color: color,
         ),
