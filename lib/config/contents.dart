@@ -1,7 +1,7 @@
 class AppContent {
   static const strAppName = "Shoal app";
   static const strSignUpText = "Sign Up Now";
-  static const strSignup = "Sign up";
+  static const strSignup = "Sign Up";
   static const strLoginText = "Login";
   static const strLoginTitle = "Login your \nAccount";
   static const strRegisterTitle = "Create your \nAccount";

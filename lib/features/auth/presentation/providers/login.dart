@@ -16,7 +16,7 @@ class LoginNotifier extends StateNotifier<AsyncValue<LoginResponseEntity?>> {
   ///
   /// Login method
   ///
-  void login(Map<String, dynamic> payload) async {
+  Future<void> login(Map<String, dynamic> payload) async {
     try {
       // start loading
       state = const AsyncLoading();

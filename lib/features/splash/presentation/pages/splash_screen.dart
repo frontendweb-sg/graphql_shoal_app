@@ -1,8 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:graphql_shoal_app/config/constants.dart';
 import 'package:graphql_shoal_app/config/contents.dart';
 import 'package:graphql_shoal_app/config/images.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/config/theme/decorations.dart';
+import 'package:graphql_shoal_app/features/auth/presentation/pages/login_screen.dart';
+import 'package:graphql_shoal_app/features/auth/presentation/pages/register_screen.dart';
+import 'package:graphql_shoal_app/gloabl.dart';
 import 'package:graphql_shoal_app/shared/widgets/button.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -16,6 +21,17 @@ class SplashScreen extends ConsumerStatefulWidget {
 }
 
 class _SplashScreenState extends ConsumerState<SplashScreen> {
+  void onSinup() {
+    // Globals.storageService
+    //     .setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
+    // navigate to signup screen
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (build) => const RegisterScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +76,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
         const SizedBox(
           height: 30,
         ),
-        button(context, onPressed: () {}, label: AppContent.strLoginText),
+        button(context, onPressed: onSinup, label: AppContent.strSignup),
         const SizedBox(
           height: 5,
         ),
@@ -72,13 +88,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
               context,
               variant: Variant.text,
               onPressed: () {
+                // Globals.storageService
+                //     .setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (ctx) => const Center(),
+                    builder: (ctx) => const LoginScreen(),
                   ),
                 );
               },
-              label: AppContent.strSignup,
+              label: AppContent.strLoginText,
             )
           ],
         )
