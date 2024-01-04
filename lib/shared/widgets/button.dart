@@ -149,5 +149,13 @@ Widget textButton(
   ButtonStyle? style,
   double? elevation,
 }) {
-  return TextButton(onPressed: onPressed, child: child ?? Text(label!));
+  return TextButton(
+    onPressed: onPressed,
+    child: child ??
+        textLabelLarge(
+          context,
+          label: label!,
+          color: textColor,
+        ),
+  );
 }

@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/config/theme/theme.dart';
-import 'package:graphql_shoal_app/core/network/dio_client.dart';
-import 'package:graphql_shoal_app/features/auth/data/datasource/auth_service.dart';
-import 'package:graphql_shoal_app/features/auth/data/repository/auth_repository_imp.dart';
 import 'package:graphql_shoal_app/gloabl.dart';
 import 'package:graphql_shoal_app/shared/riverpods/theme_riverpod.dart';
 import 'package:graphql_shoal_app/shared/widgets/button.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logger/logger.dart';
 
 void main() async {
   await Globals.initialization();
