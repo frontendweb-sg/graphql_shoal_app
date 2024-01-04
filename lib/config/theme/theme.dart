@@ -9,29 +9,53 @@ ColorScheme kColorScheme =
 TextTheme textTheme() {
   return TextTheme(
     headlineLarge: AppFonts.kFontFamily.copyWith(
-        fontSize: AppFonts.kHeadlineLarge, fontWeight: AppFonts.kMedium),
+      fontSize: AppFonts.kHeadlineLarge,
+      fontWeight: AppFonts.kMedium,
+    ),
     headlineMedium: AppFonts.kFontFamily.copyWith(
-        fontSize: AppFonts.kHeadlineMedium, fontWeight: AppFonts.kSemibold),
+      fontSize: AppFonts.kHeadlineMedium,
+      fontWeight: AppFonts.kSemibold,
+    ),
     headlineSmall: AppFonts.kFontFamily.copyWith(
-        fontSize: AppFonts.kHeadlineSmall, fontWeight: AppFonts.kMedium),
+      fontSize: AppFonts.kHeadlineSmall,
+      fontWeight: AppFonts.kMedium,
+    ),
     titleLarge: AppFonts.kFontFamily.copyWith(
-        fontSize: AppFonts.kFontTitleLarge,
-        fontWeight: AppFonts.kSemibold,
-        color: AppColor.kBlack),
+      fontSize: AppFonts.kFontTitleLarge,
+      fontWeight: AppFonts.kBold,
+      color: AppColor.kBlack,
+    ),
     titleMedium: AppFonts.kFontFamily.copyWith(
-        fontSize: AppFonts.kFontTitleMedium, fontWeight: AppFonts.kSemibold),
+      fontSize: AppFonts.kFontTitleMedium,
+      fontWeight: AppFonts.kMedium,
+    ),
     titleSmall: AppFonts.kFontFamily.copyWith(
-        fontSize: AppFonts.kFontTitleSmall, fontWeight: FontWeight.bold),
+      fontSize: AppFonts.kFontTitleSmall,
+      fontWeight: FontWeight.bold,
+    ),
     bodyLarge: AppFonts.kFontFamily.copyWith(
-        fontSize: AppFonts.kFontBodyLarge, fontWeight: FontWeight.bold),
-    bodyMedium:
-        AppFonts.kFontFamily.copyWith(color: AppColor.kBodyText, fontSize: 16),
+      fontSize: AppFonts.kFontBodyLarge,
+      fontWeight: FontWeight.normal,
+    ),
+    bodyMedium: AppFonts.kFontFamily.copyWith(
+      color: AppColor.kBodyText,
+      fontSize: AppFonts.kFontBodyMedium,
+    ),
     bodySmall: AppFonts.kFontFamily
         .copyWith(fontSize: 10, fontWeight: FontWeight.w500),
-    displayMedium: AppFonts.kFontFamily
-        .copyWith(fontSize: AppFonts.kFontDisplayMedium, color: AppColor.kGray),
-    displaySmall: AppFonts.kFontFamily
-        .copyWith(fontSize: AppFonts.kFontDisplaySmall, color: AppColor.kGray),
+    displayMedium: AppFonts.kFontFamily.copyWith(
+      fontSize: AppFonts.kFontDisplayMedium,
+      color: AppColor.kGray,
+    ),
+    displaySmall: AppFonts.kFontFamily.copyWith(
+      fontSize: AppFonts.kFontDisplaySmall,
+      color: AppColor.kGray,
+    ),
+    labelLarge: AppFonts.kFontFamily.copyWith(
+      fontSize: AppFonts.kFontLabelLarge,
+      color: AppColor.kGray,
+      fontWeight: AppFonts.kBold,
+    ),
   );
 }
 

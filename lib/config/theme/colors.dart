@@ -22,6 +22,11 @@ class AppColor {
   static const Color kTransparent = Colors.transparent;
   static const Color kSnakbarBg = Color.fromRGBO(0, 0, 0, 0.8);
 
+  /// buttons
+  static const Color kSecondaryButtonColor = Color.fromRGBO(42, 104, 119, 1);
+  static const Color kSecondaryButtonBorderColor =
+      Color.fromRGBO(42, 104, 119, 0.49);
+
   static const Color kBottomNavigationSelectedColor = kPrimaryColor;
   static const Color kBottomNavigationBackground = Colors.white;
   static const Color kBottomNavigationUnselectedColor =
