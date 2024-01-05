@@ -36,6 +36,7 @@ class AppContent {
   static const strBrowseFile = "Browse file";
   static const strSubmit = "Submit";
   static const strRequestSent = 'Your request has succesfully sent';
+  static const strApplyNow = "Apply now";
 
 // error handler
   static const strNoRouteFound = "no_route_found";

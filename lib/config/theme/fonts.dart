@@ -20,7 +20,7 @@ class AppFonts {
   static const double kFontDisplayMedium = 12;
   static const double kFontDisplaySmall = 9;
 
-  static const double kFontLabelLarge = kFontBodyLarge;
+  static const double kFontLabelLarge = kFontTitleSmall;
 
   static const FontWeight kNormal = FontWeight.normal;
   static const FontWeight kLight = FontWeight.w300;

@@ -121,7 +121,7 @@ Widget textBodyLarge(
 }) {
   return Text(
     label,
-    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+    style: Theme.of(context).textTheme.labelLarge!.copyWith(
           color: color,
         ),
   );

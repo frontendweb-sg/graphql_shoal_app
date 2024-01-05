@@ -15,9 +15,7 @@ class _LoanScreenState extends State<LoanScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: Navbar(
-        title: 'Loan wizard',
-      ),
+      appBar: Navbar(),
       body: SafeArea(
         child: PersonalDetailsScreen(),
       ),
