@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:graphql_shoal_app/config/contents.dart';
-import 'package:graphql_shoal_app/config/images.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/config/theme/decorations.dart';
+import 'package:graphql_shoal_app/core/constants/contents.dart';
+import 'package:graphql_shoal_app/core/constants/images.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/pages/forgot_password.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/pages/register_screen.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/providers/login.dart';

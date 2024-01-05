@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:graphql_shoal_app/config/constants.dart';
+import '../constants/constants.dart';
 
 ///
 /// Graphql configuration

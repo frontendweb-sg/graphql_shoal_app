@@ -1,17 +1,18 @@
-import 'package:graphql_shoal_app/config/constants.dart';
+import 'package:graphql_shoal_app/core/constants/constants.dart';
 import 'package:graphql_shoal_app/core/errors/failure.dart';
-import 'package:graphql_shoal_app/features/auth/data/repository/auth_repository_imp.dart';
 import 'package:graphql_shoal_app/features/auth/domain/entities/login_response_entity.dart';
+import 'package:graphql_shoal_app/features/auth/domain/repository/auth_repository.dart';
+import 'package:graphql_shoal_app/features/auth/domain/usecases/login_usecase.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/providers/common.dart';
-import 'package:graphql_shoal_app/gloabl.dart';
+import 'package:graphql_shoal_app/globals.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 ///
 /// Login notifier
 ///
 class LoginNotifier extends StateNotifier<AsyncValue<LoginResponseEntity?>> {
-  final AuthRepositoryImp _authRepositoryImp;
-  LoginNotifier(this._authRepositoryImp) : super(const AsyncValue.data(null));
+  final AuthRepository _authRepository;
+  LoginNotifier(this._authRepository) : super(const AsyncValue.data(null));
 
   ///
   /// Login method
@@ -22,7 +23,8 @@ class LoginNotifier extends StateNotifier<AsyncValue<LoginResponseEntity?>> {
       state = const AsyncLoading();
 
       // hit url for authenticating
-      final response = await _authRepositoryImp.login(payload);
+      final response =
+          await LoginUseCase(_authRepository).call(params: payload);
 
       // store response success / failure in state
       state = response.fold(

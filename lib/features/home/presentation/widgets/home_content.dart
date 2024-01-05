@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:graphql_shoal_app/config/images.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
+import 'package:graphql_shoal_app/core/constants/images.dart';
 import 'package:graphql_shoal_app/features/home/presentation/widgets/panel.dart';
 import 'package:graphql_shoal_app/features/loan/presentation/pages/loan_screen.dart';
 import 'package:graphql_shoal_app/shared/widgets/horizontal_panel.dart';

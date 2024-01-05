@@ -1,4 +1,4 @@
-import 'package:graphql_shoal_app/config/constants.dart';
+import 'package:graphql_shoal_app/core/constants/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 ///

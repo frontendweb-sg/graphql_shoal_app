@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graphql_shoal_app/config/images.dart';
+import 'package:graphql_shoal_app/core/constants/images.dart';
 import 'package:graphql_shoal_app/shared/widgets/button.dart';
 import 'package:graphql_shoal_app/shared/widgets/navbar.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';

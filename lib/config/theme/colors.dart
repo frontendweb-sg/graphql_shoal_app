@@ -5,6 +5,7 @@ class AppColor {
   ///
   /// App theme colors
   ///
+  static const Color kRed = Colors.red;
   static const Color kBlack = Colors.black;
   static const Color kWhite = Colors.white;
   static const Color kGray = Color.fromRGBO(82, 82, 82, 1);

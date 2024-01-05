@@ -1,6 +1,6 @@
 import 'package:graphql_shoal_app/core/errors/failure.dart';
-import 'package:graphql_shoal_app/features/auth/data/repository/auth_repository_imp.dart';
 import 'package:graphql_shoal_app/features/auth/domain/entities/register_response_entity.dart';
+import 'package:graphql_shoal_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/providers/common.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -9,7 +9,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 ///
 class RegisterNotifier
     extends StateNotifier<AsyncValue<RegisterResponseEntity?>> {
-  final AuthRepositoryImp _authRepositoryImp;
+  final AuthRepository _authRepositoryImp;
   RegisterNotifier(this._authRepositoryImp)
       : super(const AsyncValue.data(null));
 
