@@ -66,7 +66,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     required String label,
     required PageController controller,
   }) {
-    void onSinup() {
+    void onNext(Widget routePage) {
       if (index < 3) {
         controller.animateToPage(
           index,
@@ -79,7 +79,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
         // navigate to signup screen
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (build) => const RegisterScreen(),
+            builder: (build) => routePage,
           ),
         );
       }
@@ -118,7 +118,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
             ),
           ),
           button(context,
-              onPressed: onSinup,
+              onPressed: () => onNext(const RegisterScreen()),
               label: index == 3 ? AppContent.strSignup : AppContent.strNext),
           const SizedBox(
             height: 5,
@@ -132,23 +132,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
                 button(
                   context,
                   variant: Variant.text,
-                  onPressed: () {
-                    if (index < 3) {
-                      controller.animateToPage(
-                        index,
-                        duration: const Duration(microseconds: 300),
-                        curve: Curves.linear,
-                      );
-                    } else {
-                      // Globals.storageService
-                      //     .setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (ctx) => const LoginScreen(),
-                        ),
-                      );
-                    }
-                  },
+                  onPressed: () => onNext(const LoginScreen()),
                   label: AppContent.strLoginText,
                 )
               ],
