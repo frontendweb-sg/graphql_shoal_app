@@ -1,11 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:shoal_app/core/constants/colors.dart';
-import 'package:shoal_app/core/utils/index.dart';
-import 'package:shoal_app/features/shoal/presentation/widgets/common/button.dart';
-import 'package:shoal_app/features/shoal/presentation/widgets/common/heading.dart';
-import 'package:shoal_app/features/shoal/presentation/widgets/common/input.dart';
 
 class PersonalDetails extends StatefulWidget {
   const PersonalDetails({super.key});

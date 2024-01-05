@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:graphql_shoal_app/config/theme/theme.dart';
 import 'package:graphql_shoal_app/features/home/presentation/pages/home_screen.dart';
+import 'package:graphql_shoal_app/features/loan/presentation/pages/loan_screen.dart';
 import 'package:graphql_shoal_app/features/splash/presentation/pages/splash_screen.dart';
 import 'package:graphql_shoal_app/gloabl.dart';
 import 'package:graphql_shoal_app/shared/riverpods/theme_riverpod.dart';
@@ -35,7 +36,7 @@ class MyApp extends ConsumerWidget {
         darkTheme: darkTheme,
         themeMode: ref.watch(themeProvider) ? ThemeMode.dark : ThemeMode.light,
         home:
-            const HomeScreen() //!isFirstTime ? const SplashScreen() : const HomeScreen(),,
+            const LoanScreen() //!isFirstTime ? const SplashScreen() : const HomeScreen(),,
         );
   }
 }
