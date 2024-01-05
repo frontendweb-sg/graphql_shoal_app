@@ -37,6 +37,11 @@ class Globals {
       ),
     );
 
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     // initialize storage
     storageService = await StorageService().init();
 

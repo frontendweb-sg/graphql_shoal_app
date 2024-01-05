@@ -87,57 +87,62 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
     return Container(
       padding: const EdgeInsets.all(25.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Image.asset(image),
-          const SizedBox(
-            height: 90,
-          ),
-          textHedlineMedium(
-            context,
-            align: TextAlign.center,
-            color: AppColor.kBlack,
-            label: label,
-          ),
-          const SizedBox(
-            height: 90,
-          ),
-          // const CircleAvatar(
-          //   backgroundColor: AppColor.kPrimaryColor,
-          //   foregroundColor: AppColor.kWhite,
-          //   child: Icon(Icons.arrow_forward_ios),
-          // ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 30.0),
-            child: DotsIndicator(
-              decorator: dotDecoration(),
-              position: ref.watch(indexDotProvider),
-              dotsCount: 3,
-              mainAxisAlignment: MainAxisAlignment.center,
+      width: MediaQuery.of(context).size.width - 50.0,
+      height: MediaQuery.of(context).size.height - 50.0,
+      alignment: Alignment.bottomCenter,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Image.asset(image),
+            const SizedBox(
+              height: 90,
             ),
-          ),
-          button(context,
-              onPressed: () => onNext(const RegisterScreen()),
-              label: index == 3 ? AppContent.strSignup : AppContent.strNext),
-          const SizedBox(
-            height: 5,
-          ),
-          if (index == 3)
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                textDisplayMedium(context,
-                    label: AppContent.strAlreadyHaveAccount),
-                button(
-                  context,
-                  variant: Variant.text,
-                  onPressed: () => onNext(const LoginScreen()),
-                  label: AppContent.strLoginText,
-                )
-              ],
-            )
-        ],
+            textHedlineMedium(
+              context,
+              align: TextAlign.center,
+              color: AppColor.kBlack,
+              label: label,
+            ),
+            const SizedBox(
+              height: 90,
+            ),
+            // const CircleAvatar(
+            //   backgroundColor: AppColor.kPrimaryColor,
+            //   foregroundColor: AppColor.kWhite,
+            //   child: Icon(Icons.arrow_forward_ios),
+            // ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 30.0),
+              child: DotsIndicator(
+                decorator: dotDecoration(),
+                position: ref.watch(indexDotProvider),
+                dotsCount: 3,
+                mainAxisAlignment: MainAxisAlignment.center,
+              ),
+            ),
+            button(context,
+                onPressed: () => onNext(const RegisterScreen()),
+                label: index == 3 ? AppContent.strSignup : AppContent.strNext),
+            const SizedBox(
+              height: 5,
+            ),
+            if (index == 3)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  textDisplayMedium(context,
+                      label: AppContent.strAlreadyHaveAccount),
+                  button(
+                    context,
+                    variant: Variant.text,
+                    onPressed: () => onNext(const LoginScreen()),
+                    label: AppContent.strLoginText,
+                  )
+                ],
+              )
+          ],
+        ),
       ),
     );
   }
