@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:graphql_shoal_app/core/constants/contents.dart';
 import 'package:graphql_shoal_app/features/account/presentation/pages/setting_screen.dart';
 import 'package:graphql_shoal_app/features/history/presentation/pages/history_screen.dart';
 import 'package:graphql_shoal_app/features/home/presentation/providers/tab.dart';
@@ -30,7 +31,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: const Navbar(),
+      appBar: const Navbar(
+        title: AppContent.strHomeText,
+      ),
       drawer: const Sidebar(),
       body: screen,
       bottomNavigationBar: const BottomNavigation(),

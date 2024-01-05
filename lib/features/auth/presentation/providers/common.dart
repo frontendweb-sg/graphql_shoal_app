@@ -1,6 +1,7 @@
 import 'package:graphql_shoal_app/features/auth/data/datasource/auth_service.dart';
 import 'package:graphql_shoal_app/features/auth/data/repository/auth_repository_imp.dart';
-import 'package:graphql_shoal_app/shared/riverpods/dio.dart';
+import 'package:graphql_shoal_app/features/auth/domain/repository/auth_repository.dart';
+import 'package:graphql_shoal_app/shared/providers/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 ///
@@ -17,7 +18,7 @@ final authServiceProvider = Provider<AuthService>(
 /// Auth repository provider
 /// Initialize repository to interact with auth service
 ///
-final authRepositoryProvider = Provider(
+final authRepositoryProvider = Provider<AuthRepository>(
   (ref) => AuthRepositoryImp(
     ref.watch(authServiceProvider),
   ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:graphql_shoal_app/config/contents.dart';
-import 'package:graphql_shoal_app/config/images.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
+import 'package:graphql_shoal_app/core/constants/images.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 
 class Navbar extends StatelessWidget implements PreferredSizeWidget {
@@ -11,22 +10,24 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        iconSize: 18.0,
-        icon: const ImageIcon(
-          AssetImage(
-            AppImage.imgDrawerIcon,
-          ),
-          size: 18.0,
-        ),
-        onPressed: () {
-          Scaffold.of(context).openDrawer();
-        },
-      ),
+      surfaceTintColor: Colors.transparent,
+      // leading: IconButton(
+      //   iconSize: 18.0,
+      //   icon: const ImageIcon(
+      //     AssetImage(
+      //       AppImage.imgDrawerIcon,
+      //     ),
+      //     size: 18.0,
+      //   ),
+      //   onPressed: () {
+      //     Scaffold.of(context).openDrawer();
+      //   },
+      // ),
+
       title: textBodyLarge(
         context,
         color: AppColor.kBlack,
-        label: AppContent.strHomeText,
+        label: title ?? '',
       ),
       actions: [
         IconButton(

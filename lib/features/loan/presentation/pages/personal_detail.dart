@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql_shoal_app/config/contents.dart';
-import 'package:graphql_shoal_app/config/images.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/config/theme/decorations.dart';
+import 'package:graphql_shoal_app/core/constants/contents.dart';
+import 'package:graphql_shoal_app/core/constants/images.dart';
 import 'package:graphql_shoal_app/shared/widgets/button.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 

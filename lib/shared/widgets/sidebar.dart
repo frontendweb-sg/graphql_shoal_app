@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:graphql_shoal_app/config/images.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
-import 'package:graphql_shoal_app/shared/riverpods/theme_riverpod.dart';
-import 'package:graphql_shoal_app/utils/sidebar/menu.dart';
+import 'package:graphql_shoal_app/core/constants/images.dart';
+import 'package:graphql_shoal_app/features/auth/presentation/pages/login_screen.dart';
+import 'package:graphql_shoal_app/globals.dart';
+import 'package:graphql_shoal_app/shared/providers/theme_riverpod.dart';
+import 'package:graphql_shoal_app/utils/data/sidebar/menu.dart';
 
 class Sidebar extends ConsumerWidget {
   const Sidebar({super.key});
@@ -21,17 +23,25 @@ class Sidebar extends ConsumerWidget {
             child: sidebarMenu(context),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Globals.storageService.logout();
+              if (!Globals.storageService.userIsAuthenticated) {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (bld) => const LoginScreen(),
+                  ),
+                );
+              }
+            },
             child: const Text(
               "Logout",
             ),
           ),
           Text(
             'Last visited ${DateTime.now()}',
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: Colors.red),
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  color: AppColor.kRed,
+                ),
           ),
           Switch(
             value: themeState,

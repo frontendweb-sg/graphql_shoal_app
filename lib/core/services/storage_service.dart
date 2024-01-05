@@ -1,4 +1,4 @@
-import 'package:graphql_shoal_app/config/constants.dart';
+import 'package:graphql_shoal_app/core/constants/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 ///
@@ -28,8 +28,8 @@ class StorageService {
         false;
   }
 
-  bool userIsAuthenticated(String key) {
-    String? token = _preferences.getString(key);
+  bool get userIsAuthenticated {
+    String? token = _preferences.getString(AppConstants.APP_AUTH_TOKEN);
     if (token == null || token.isEmpty) {
       return false;
     }
@@ -39,5 +39,9 @@ class StorageService {
   String getToken(String key) {
     String? token = _preferences.getString(key);
     return token!;
+  }
+
+  Future<bool> logout() {
+    return _preferences.remove(AppConstants.APP_AUTH_TOKEN);
   }
 }

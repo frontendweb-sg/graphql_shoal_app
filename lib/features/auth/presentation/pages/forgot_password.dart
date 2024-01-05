@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:graphql_shoal_app/config/contents.dart';
-import 'package:graphql_shoal_app/config/images.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/config/theme/decorations.dart';
+import 'package:graphql_shoal_app/core/constants/contents.dart';
+import 'package:graphql_shoal_app/core/constants/images.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/pages/login_screen.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/widgets/auth_wrapper.dart';
 import 'package:graphql_shoal_app/shared/widgets/button.dart';
-import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});

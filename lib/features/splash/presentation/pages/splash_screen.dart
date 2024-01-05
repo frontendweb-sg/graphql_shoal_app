@@ -1,13 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql_shoal_app/config/constants.dart';
-import 'package:graphql_shoal_app/config/contents.dart';
-import 'package:graphql_shoal_app/config/images.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/config/theme/decorations.dart';
+import 'package:graphql_shoal_app/core/constants/contents.dart';
+import 'package:graphql_shoal_app/core/constants/images.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/pages/login_screen.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/pages/register_screen.dart';
-import 'package:graphql_shoal_app/gloabl.dart';
 import 'package:graphql_shoal_app/shared/widgets/button.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
