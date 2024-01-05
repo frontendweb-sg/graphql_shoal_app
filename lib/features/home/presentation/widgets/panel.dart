@@ -11,38 +11,37 @@ Widget panelCard(
   String? image,
   Icon? icon,
 }) {
-  return Expanded(
-    child: Container(
-      padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        color: AppColor.kGrayLight,
-        border: Border.all(
-          color: AppColor.kBorderColor,
-          style: BorderStyle.solid,
-          width: 1,
-        ),
-        borderRadius: BorderRadius.circular(30),
+  return Ink(
+    decoration: BoxDecoration(
+      color: AppColor.kTransparent,
+      border: Border.all(
+        color: AppColor.kCardBorderColor,
+        style: BorderStyle.solid,
+        width: 1,
       ),
-      child: Column(
-        children: [
-          Image.asset(image!),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: textBodyLarge(
-              context,
-              label: label,
-              color: AppColor.kDarkGreen,
+      borderRadius: BorderRadius.circular(16.0),
+    ),
+    child: InkWell(
+      borderRadius: BorderRadius.circular(16),
+      highlightColor: AppColor.kCardHighlightColor,
+      onTap: () {
+        print("HI");
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            Image.asset(image!),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: textBodyLarge(
+                context,
+                label: label,
+                color: AppColor.kDarkGreen,
+              ),
             ),
-          ),
-          button(
-            context,
-            variant: Variant.outlined,
-            height: 40,
-            onPressed: onPressed,
-            label: AppContent.strApplyNow,
-            //child: const Text('Apply now'),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );
