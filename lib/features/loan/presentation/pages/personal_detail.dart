@@ -1,17 +1,24 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:graphql_shoal_app/config/contents.dart';
+import 'package:graphql_shoal_app/config/images.dart';
+import 'package:graphql_shoal_app/config/theme/colors.dart';
+import 'package:graphql_shoal_app/config/theme/decorations.dart';
+import 'package:graphql_shoal_app/shared/widgets/button.dart';
+import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 
-class PersonalDetails extends StatefulWidget {
-  const PersonalDetails({super.key});
+class PersonalDetailsScreen extends StatefulWidget {
+  const PersonalDetailsScreen({super.key});
 
   @override
-  State<PersonalDetails> createState() {
-    return _PersonalDetailsState();
+  State<PersonalDetailsScreen> createState() {
+    return _PersonalDetailsScreenState();
   }
 }
 
-class _PersonalDetailsState extends State<PersonalDetails> {
-  final _personalDetailForm = GlobalKey<FormState>();
+class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
+  final _formKey = GlobalKey<FormState>();
+  bool _privacyPolicy = false;
   final Map<String, dynamic> _form = {
     "name": "",
     "email": "",
@@ -21,10 +28,10 @@ class _PersonalDetailsState extends State<PersonalDetails> {
     "city": "",
     "pincode": ""
   };
-  bool _checked = false;
+
   void onSumit() {
-    if (_personalDetailForm.currentState!.validate()) {
-      _personalDetailForm.currentState!.save();
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
 
       print(_form);
     }
@@ -32,133 +39,176 @@ class _PersonalDetailsState extends State<PersonalDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _personalDetailForm,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const Heading(
-              label: 'Personal Details',
-              variant: Variant.large,
-            ),
-            const SizedBox(
-              height: gapLg,
-            ),
-            Input(
-              value: _form['name'],
-              hintText: 'Name',
-              onSaved: (value) {
-                _form['name'] = value!;
-              },
-            ),
-            Input(
-              icon: Icons.email,
-              keyboardType: TextInputType.emailAddress,
-              value: _form['email'],
-              hintText: 'Email',
-              onSaved: (value) {
-                _form['email'] = value!;
-              },
-            ),
-            Input(
-              icon: Icons.phone,
-              keyboardType: TextInputType.phone,
-              value: _form['mobile'],
-              hintText: 'Mobile',
-              onSaved: (value) {
-                _form['mobile'] = value!;
-              },
-            ),
-            Input(
-              icon: Icons.place,
-              value: _form['address'],
-              hintText: 'Address',
-              onSaved: (value) {
-                _form['address'] = value!;
-              },
-            ),
-            Input(
-              icon: Icons.room,
-              value: _form['city'],
-              hintText: 'City',
-              onSaved: (value) {
-                _form['city'] = value!;
-              },
-            ),
-            Input(
-              icon: Icons.phone,
-              value: _form['pincode'],
-              hintText: 'Pincode',
-              keyboardType: TextInputType.number,
-              textInputAction: TextInputAction.done,
-              onSaved: (value) {
-                _form['pincode'] = value!;
-              },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Checkbox(
-                    value: _checked,
-                    onChanged: (value) {
-                      setState(() {
-                        _checked = value!;
-                      });
-                    }),
-                Expanded(
-                  child: RichText(
-                    softWrap: true,
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Aggree to our',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: gray),
-                        ),
-                        const WidgetSpan(
-                            child: SizedBox(
-                          width: 4,
-                        )),
-                        TextSpan(
-                          text: 'Terms & Conditions \n',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, color: lightBlue),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              print('t 7 c');
-                            },
-                        ),
-                        const TextSpan(
-                          text: 'and',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: gray),
-                        ),
-                        const WidgetSpan(
-                            child: SizedBox(
-                          width: 4,
-                        )),
-                        TextSpan(
-                          text: 'Privacy policy',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, color: lightBlue),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              print('p 7 c');
-                            },
-                        ),
-                      ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(25.0),
+        child: SafeArea(child: buildForm(context)),
+      ),
+    );
+  }
+
+  Widget buildForm(BuildContext context) {
+    return Column(
+      children: [
+        textTitleLarge(
+          context,
+          label: AppContent.strPersonalDetails,
+          align: TextAlign.center,
+          color: AppColor.kBlack,
+        ),
+        const SizedBox(
+          height: 50.0,
+        ),
+        Form(
+          child: Column(
+            children: [
+              TextFormField(
+                decoration: inputDecoration(
+                  context,
+                  hintText: 'Name',
+                  imageIcon: AppImage.imgName,
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              TextFormField(
+                decoration: inputDecoration(
+                  context,
+                  hintText: 'Email',
+                  imageIcon: AppImage.imgMail,
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              TextFormField(
+                decoration: inputDecoration(
+                  context,
+                  hintText: 'Number',
+                  imageIcon: AppImage.imgMobile,
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              TextFormField(
+                decoration: inputDecoration(
+                  context,
+                  hintText: 'Address',
+                  imageIcon: AppImage.imgLocator,
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              TextFormField(
+                decoration: inputDecoration(
+                  context,
+                  hintText: 'City',
+                  imageIcon: AppImage.imgLocator,
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              TextFormField(
+                decoration: inputDecoration(
+                  context,
+                  hintText: 'State',
+                  imageIcon: AppImage.imgLocator,
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              TextFormField(
+                decoration: inputDecoration(
+                  context,
+                  hintText: 'Pincode',
+                  imageIcon: AppImage.imgLocator,
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                      value: _privacyPolicy,
+                      onChanged: (value) {
+                        setState(() {
+                          _privacyPolicy = value!;
+                        });
+                      }),
+                  Expanded(
+                    child: RichText(
+                      softWrap: true,
+                      text: TextSpan(
+                        children: [
+                          const TextSpan(
+                            text: 'Aggree to our',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: AppColor.kGray),
+                          ),
+                          const WidgetSpan(
+                              child: SizedBox(
+                            width: 4,
+                          )),
+                          TextSpan(
+                            text: 'Terms & Conditions \n',
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: AppColor.kPrimaryColor),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                print('t 7 c');
+                              },
+                          ),
+                          const TextSpan(
+                            text: 'and',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: AppColor.kGray),
+                          ),
+                          const WidgetSpan(
+                              child: SizedBox(
+                            width: 4,
+                          )),
+                          TextSpan(
+                            text: 'Privacy policy',
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: AppColor.kPrimaryColor),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                print('p 7 c');
+                              },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Button(label: 'Save', width: double.infinity, onPressed: onSumit)
-          ],
+                ],
+              ),
+              const SizedBox(
+                height: 45.0,
+              ),
+              button(context, onPressed: onSumit, label: "Submit"),
+              const SizedBox(
+                height: 15.0,
+              ),
+              textDisplayMedium(
+                context,
+                color: Colors.red,
+                label: 'Last visited: ${DateTime.now()}',
+              )
+            ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

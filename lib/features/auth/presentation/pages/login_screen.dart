@@ -7,7 +7,9 @@ import 'package:graphql_shoal_app/features/auth/presentation/pages/forgot_passwo
 import 'package:graphql_shoal_app/features/auth/presentation/pages/register_screen.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/providers/login.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/widgets/auth_wrapper.dart';
+import 'package:graphql_shoal_app/features/home/presentation/pages/home_screen.dart';
 import 'package:graphql_shoal_app/shared/widgets/button.dart';
+import 'package:graphql_shoal_app/shared/widgets/toaster.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -35,6 +37,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       // api logic
       await ref.read(loginProvider.notifier).login(_auth);
 
+      Future.delayed(const Duration(seconds: 10), () {
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      });
+
       setState(() {
         _loading = false;
       });
@@ -43,6 +49,25 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(
+      loginProvider,
+      (previous, next) {
+        if (next.hasValue) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (build) => const HomeScreen(),
+            ),
+          );
+        }
+        if (next.hasError) {
+          setState(() {
+            _loading = false;
+          });
+          toaster(context, msg: next.asError!.error.toString());
+        }
+      },
+    );
+
     return AuthWrapper(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

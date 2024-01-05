@@ -22,4 +22,6 @@ class AppImage {
   static const imgEmailIcon = "assets/images/mail.png";
   static const imgName = "assets/images/name.png";
   static const imgDrawerIcon = "assets/images/bar-icon.png";
+  static const imgMobile = "assets/images/mobile.png";
+  static const imgLocator = "assets/images/locator.png";
 }

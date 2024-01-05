@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graphql_shoal_app/features/loan/presentation/pages/success.dart';
+import 'package:graphql_shoal_app/features/loan/presentation/pages/personal_detail.dart';
 import 'package:graphql_shoal_app/shared/widgets/navbar.dart';
 
 class LoanScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _LoanScreenState extends State<LoanScreen> {
         title: 'Loan wizard',
       ),
       body: SafeArea(
-        child: SuccessScreen(),
+        child: PersonalDetailsScreen(),
       ),
     );
   }

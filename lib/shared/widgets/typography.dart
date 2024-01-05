@@ -60,14 +60,14 @@ Widget textHedlineSmall(
 /// Title large
 /// font-size: 24
 ///
-Widget textTitleLarge(
-  BuildContext context, {
-  required String label,
-  Color? color = AppColor.kBodyText,
-  FontWeight? fontWeight = FontWeight.normal,
-}) {
+Widget textTitleLarge(BuildContext context,
+    {required String label,
+    Color? color = AppColor.kBodyText,
+    FontWeight? fontWeight = FontWeight.normal,
+    TextAlign? align}) {
   return Text(
     label,
+    textAlign: align,
     style: Theme.of(context).textTheme.titleLarge!.copyWith(
           color: color,
         ),

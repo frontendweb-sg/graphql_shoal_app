@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:graphql_shoal_app/config/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 ///
@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// 2.
 ///
 class StorageService {
-  late SharedPreferences _preferences;
+  late final SharedPreferences _preferences;
 
   Future<StorageService> init() async {
     _preferences = await SharedPreferences.getInstance();
@@ -23,7 +23,21 @@ class StorageService {
     return await _preferences.setBool(key, value);
   }
 
-  bool isUserOpenFirstTime(String key) {
-    return _preferences.getBool(key) ?? false;
+  bool userFirstTimeOpenApp() {
+    return _preferences.getBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME) ??
+        false;
+  }
+
+  bool userIsAuthenticated(String key) {
+    String? token = _preferences.getString(key);
+    if (token == null || token.isEmpty) {
+      return false;
+    }
+    return true;
+  }
+
+  String getToken(String key) {
+    String? token = _preferences.getString(key);
+    return token!;
   }
 }

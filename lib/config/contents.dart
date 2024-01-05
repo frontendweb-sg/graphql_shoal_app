@@ -28,6 +28,14 @@ class AppContent {
   static const strDontHaveAccount = "Don't have an account?";
   static const strHaveAccount = "Already have an account?";
   static const strBackTologin = "Back to login";
+  static const strPersonalDetails = "Personal Details";
+  static const strUploadDocument = "Upload Document";
+  static const strEducationLevel = "Education Level";
+  static const strFormIdentification = "Form of identification";
+  static const strUploadIdentification = "Upload Form of Identification";
+  static const strBrowseFile = "Browse file";
+  static const strSubmit = "Submit";
+  static const strRequestSent = 'Your request has succesfully sent';
 
 // error handler
   static const strNoRouteFound = "no_route_found";
