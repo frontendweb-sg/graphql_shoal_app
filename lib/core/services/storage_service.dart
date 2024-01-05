@@ -28,8 +28,8 @@ class StorageService {
         false;
   }
 
-  bool userIsAuthenticated(String key) {
-    String? token = _preferences.getString(key);
+  bool get userIsAuthenticated {
+    String? token = _preferences.getString(AppConstants.APP_AUTH_TOKEN);
     if (token == null || token.isEmpty) {
       return false;
     }
@@ -39,5 +39,9 @@ class StorageService {
   String getToken(String key) {
     String? token = _preferences.getString(key);
     return token!;
+  }
+
+  Future<bool> logout() {
+    return _preferences.remove(AppConstants.APP_AUTH_TOKEN);
   }
 }

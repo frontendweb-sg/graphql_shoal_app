@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:graphql_shoal_app/config/constants.dart';
+import 'package:graphql_shoal_app/config/contents.dart';
 import 'package:graphql_shoal_app/config/theme/theme.dart';
 import 'package:graphql_shoal_app/core/services/storage_service.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/pages/login_screen.dart';
@@ -32,9 +33,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     StorageService storageService = Globals.storageService;
     bool isFirstTime = storageService.userFirstTimeOpenApp();
-
-    bool isToken =
-        storageService.userIsAuthenticated(AppConstants.APP_AUTH_TOKEN);
+    bool isToken = storageService.userIsAuthenticated;
 
     Widget screen = const SplashScreen();
     if (isFirstTime && !isToken) {
@@ -44,7 +43,7 @@ class MyApp extends ConsumerWidget {
     }
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: AppContent.strAppName,
       debugShowCheckedModeBanner: false,
       theme: lightTheme,
       darkTheme: darkTheme,

@@ -34,6 +34,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         _loading = true;
       });
 
+      print(_auth);
       // api logic
       await ref.read(loginProvider.notifier).login(_auth);
 
@@ -97,14 +98,14 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             style: Theme.of(context).textTheme.bodyMedium,
-            initialValue: _auth["email"],
+            initialValue: _auth["userName"],
             decoration: inputDecoration(
               context,
               hintText: AppContent.strEnterEmail,
               imageIcon: AppImage.imgEmailIcon,
             ),
             onSaved: (value) {
-              _auth["email"] = value!;
+              _auth["userName"] = value!;
             },
             validator: (value) {
               if (value == null || value.isEmpty) {

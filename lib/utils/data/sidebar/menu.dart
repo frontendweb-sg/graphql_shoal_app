@@ -7,13 +7,14 @@ class Menu {
   final String? subtitle;
   final Function(BuildContext context)? onPressed;
   final List<Menu>? childrens;
-  Menu(
-      {this.id,
-      this.title,
-      this.subtitle,
-      this.icon,
-      this.onPressed,
-      this.childrens});
+  Menu({
+    this.id,
+    this.title,
+    this.subtitle,
+    this.icon,
+    this.onPressed,
+    this.childrens,
+  });
 }
 
 List<Menu> sidebarMenus = [

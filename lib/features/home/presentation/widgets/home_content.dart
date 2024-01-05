@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:graphql_shoal_app/config/constants.dart';
 import 'package:graphql_shoal_app/config/images.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
+import 'package:graphql_shoal_app/features/auth/presentation/providers/login.dart';
 import 'package:graphql_shoal_app/features/home/presentation/widgets/panel.dart';
+import 'package:graphql_shoal_app/gloabl.dart';
 import 'package:graphql_shoal_app/shared/widgets/horizontal_panel.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 
-class HomeScreenContent extends StatelessWidget {
+class HomeScreenContent extends ConsumerWidget {
   const HomeScreenContent({super.key});
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Stack(
       alignment: AlignmentDirectional.bottomStart,
       fit: StackFit.expand,
