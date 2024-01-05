@@ -1,5 +1,5 @@
 class AppImage {
-  static const imgApppLogo = "assets/images/logo.png";
+  static const imgAppLogo = "assets/images/logo.png";
   static const imgGirlBoyImg = "assets/images/girl-boy-image.svg";
   static const imgSplashImage = "assets/images/splash_screen_img.png";
   static const imgHomeScreenBg = "assets/images/home-top-bg.png";
@@ -24,4 +24,6 @@ class AppImage {
   static const imgDrawerIcon = "assets/images/bar-icon.png";
   static const imgMobile = "assets/images/mobile.png";
   static const imgLocator = "assets/images/locator.png";
+  static const imgSplashScreen1 = "assets/images/splash-screen-1.png";
+  static const imgSplashScreen2 = "assets/images/splash-screen-2.png";
 }

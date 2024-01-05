@@ -20,7 +20,7 @@ class HorizontalCard extends StatelessWidget {
           SizedBox(
             width: 100,
             height: 100,
-            child: Image.asset(AppImage.imgApppLogo),
+            child: Image.asset(AppImage.imgAppLogo),
           ),
           const SizedBox(
             width: 20,

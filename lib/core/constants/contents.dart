@@ -1,4 +1,5 @@
 class AppContent {
+  static const strNext = "Next";
   static const strAppName = "Shoal app";
   static const strSignUpText = "Sign Up Now";
   static const strSignup = "Sign Up";
