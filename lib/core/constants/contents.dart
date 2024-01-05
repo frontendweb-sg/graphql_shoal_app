@@ -41,6 +41,10 @@ class AppContent {
   static const strApplyNPS = "Apply NPS";
   static const strRequest = "Request";
   static const strContact = "Contact";
+  static const strClickToKnowMore = "Click to know more";
+  static const strSharingCaring = "Sharing is caring!";
+  static const strShareContent =
+      "Share the same account upto 5 members by adding them into your family list.";
 
 // error handler
   static const strNoRouteFound = "no_route_found";

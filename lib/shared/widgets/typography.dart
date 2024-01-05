@@ -158,6 +158,7 @@ Widget textBodySmall(
 }) {
   return Text(
     label,
+    softWrap: true,
     style: Theme.of(context).textTheme.bodySmall!.copyWith(
           color: color,
           fontWeight: fontWeight,

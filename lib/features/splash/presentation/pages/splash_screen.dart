@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/config/theme/decorations.dart';
 import 'package:graphql_shoal_app/core/constants/contents.dart';
@@ -94,7 +95,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Image.asset(image),
+            image.split(".")[1] == "png"
+                ? Image.asset(image)
+                : SvgPicture.asset(image),
             const SizedBox(
               height: 90,
             ),

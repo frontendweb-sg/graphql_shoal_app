@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/core/constants/contents.dart';
-import 'package:graphql_shoal_app/shared/widgets/button.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 
 Widget panelCard(
@@ -30,16 +30,27 @@ Widget panelCard(
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(image!),
+            Container(
+              width: 54.81,
+              height: 54.81,
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: AppColor.kGrayLight,
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              child: SvgPicture.asset(image!),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: textBodyLarge(
                 context,
                 label: label,
-                color: AppColor.kDarkGreen,
+                color: AppColor.kBlack,
               ),
             ),
+            textDisplayMedium(context, label: AppContent.strClickToKnowMore)
           ],
         ),
       ),

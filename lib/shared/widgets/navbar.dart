@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/core/constants/images.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';
@@ -30,15 +31,15 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
         label: title ?? '',
       ),
       actions: [
-        IconButton(
-          onPressed: () {},
-          icon: const ImageIcon(
-            AssetImage(
-              AppImage.imgNotificationIcon,
-            ),
-            size: 17.5,
-          ),
-        ),
+        // IconButton(
+        //   onPressed: () {},
+        //   icon: const ImageIcon(
+        //     AssetImage(
+        //       AppImage.imgNotificationIcon,
+        //     ),
+        //     size: 17.5,
+        //   ),
+        // ),
       ],
     );
   }

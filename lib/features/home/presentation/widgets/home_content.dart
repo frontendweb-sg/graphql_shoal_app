@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/core/constants/contents.dart';
 import 'package:graphql_shoal_app/core/constants/images.dart';
+import 'package:graphql_shoal_app/features/home/presentation/widgets/horizontal_panel.dart';
 import 'package:graphql_shoal_app/features/home/presentation/widgets/panel.dart';
 import 'package:graphql_shoal_app/features/loan/presentation/pages/loan_screen.dart';
 import 'package:graphql_shoal_app/shared/widgets/horizontal_panel.dart';
@@ -26,62 +28,69 @@ class HomeScreenContent extends ConsumerWidget {
           ),
         ),
         Container(
-          padding: const EdgeInsets.fromLTRB(25.0, 205.0, 25.0, 25.0),
+          padding: const EdgeInsets.fromLTRB(25.0, 205.0, 25.0, 75.0),
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: GridView.count(
-            crossAxisCount: 2,
-            mainAxisSpacing: 20.0,
-            crossAxisSpacing: 20.0,
+          child: Column(
             children: [
-              panelCard(
-                context,
-                image: AppImage.imgUserDollarIcon,
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (builder) => const LoanScreen(),
+              Expanded(
+                child: GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 20.0,
+                  crossAxisSpacing: 20.0,
+                  children: [
+                    panelCard(
+                      context,
+                      image: AppImage.imgSendIcon,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (builder) => const LoanScreen(),
+                          ),
+                        );
+                      },
+                      label: AppContent.strApplyLoan,
                     ),
-                  );
-                },
-                label: AppContent.strApplyLoan,
+                    panelCard(
+                      context,
+                      image: AppImage.imgWalletIcon,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (builder) => const LoanScreen(),
+                          ),
+                        );
+                      },
+                      label: AppContent.strApplyNPS,
+                    ),
+                    panelCard(
+                      context,
+                      image: AppImage.imgLoginIcon,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (builder) => const LoanScreen(),
+                          ),
+                        );
+                      },
+                      label: AppContent.strRequest,
+                    ),
+                    panelCard(
+                      context,
+                      image: AppImage.imgUserIcon,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (builder) => const LoanScreen(),
+                          ),
+                        );
+                      },
+                      label: AppContent.strContact,
+                    )
+                  ],
+                ),
               ),
-              panelCard(
-                context,
-                image: AppImage.imgUserDollarIcon,
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (builder) => const LoanScreen(),
-                    ),
-                  );
-                },
-                label: AppContent.strApplyNPS,
-              ),
-              panelCard(
-                context,
-                image: AppImage.imgUserDollarIcon,
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (builder) => const LoanScreen(),
-                    ),
-                  );
-                },
-                label: AppContent.strRequest,
-              ),
-              panelCard(
-                context,
-                image: AppImage.imgUserDollarIcon,
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (builder) => const LoanScreen(),
-                    ),
-                  );
-                },
-                label: AppContent.strContact,
-              )
+              horizontalPanel(context),
             ],
           ),
         ),
