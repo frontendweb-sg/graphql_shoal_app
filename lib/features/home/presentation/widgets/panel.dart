@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graphql_shoal_app/config/theme/colors.dart';
 import 'package:graphql_shoal_app/core/constants/contents.dart';
-import 'package:graphql_shoal_app/shared/widgets/button.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 
 Widget panelCard(
@@ -11,38 +11,48 @@ Widget panelCard(
   String? image,
   Icon? icon,
 }) {
-  return Expanded(
-    child: Container(
-      padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        color: AppColor.kGrayLight,
-        border: Border.all(
-          color: AppColor.kBorderColor,
-          style: BorderStyle.solid,
-          width: 1,
-        ),
-        borderRadius: BorderRadius.circular(30),
+  return Ink(
+    decoration: BoxDecoration(
+      color: AppColor.kTransparent,
+      border: Border.all(
+        color: AppColor.kCardBorderColor,
+        style: BorderStyle.solid,
+        width: 1,
       ),
-      child: Column(
-        children: [
-          Image.asset(image!),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: textBodyLarge(
-              context,
-              label: label,
-              color: AppColor.kDarkGreen,
+      borderRadius: BorderRadius.circular(16.0),
+    ),
+    child: InkWell(
+      borderRadius: BorderRadius.circular(16),
+      highlightColor: AppColor.kCardHighlightColor,
+      onTap: () {
+        print("HI");
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 54.81,
+              height: 54.81,
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: AppColor.kGrayLight,
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              child: SvgPicture.asset(image!),
             ),
-          ),
-          button(
-            context,
-            variant: Variant.outlined,
-            height: 40,
-            onPressed: onPressed,
-            label: AppContent.strApplyNow,
-            //child: const Text('Apply now'),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: textBodyLarge(
+                context,
+                label: label,
+                color: AppColor.kBlack,
+              ),
+            ),
+            textDisplayMedium(context, label: AppContent.strClickToKnowMore)
+          ],
+        ),
       ),
     ),
   );

@@ -50,6 +50,8 @@ dependencies:
   hooks_riverpod: ^2.4.9
   flutter_riverpod: ^2.4.9
   intl: ^0.17.0
+  flutter_svg: ^2.0.9
+  dots_indicator: ^3.0.0
 
 dev_dependencies:
   flutter_test:

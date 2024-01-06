@@ -8,6 +8,7 @@ class AppColor {
   static const Color kRed = Colors.red;
   static const Color kBlack = Colors.black;
   static const Color kWhite = Colors.white;
+
   static const Color kGray = Color.fromRGBO(82, 82, 82, 1);
   static const Color kBodyText = Color.fromRGBO(0, 0, 0, 0.5);
   static const Color kPrimaryColor = Color.fromRGBO(113, 99, 253, 1);
@@ -20,6 +21,9 @@ class AppColor {
   static const Color kInputBg = Color.fromRGBO(196, 196, 196, 0.20);
   static const Color kGreen = Color.fromARGB(255, 6, 178, 23);
   static const Color kBorderColor = Color.fromARGB(255, 226, 228, 229);
+  static const Color kCardBorderColor = Color.fromRGBO(227, 233, 237, 1);
+  static const Color kCardHighlightColor = Color.fromRGBO(233, 254, 239, 1);
+  static const Color kCardHoverBorderColor = Color.fromRGBO(51, 217, 134, 1);
   static const Color kTransparent = Colors.transparent;
   static const Color kSnakbarBg = Color.fromRGBO(0, 0, 0, 0.8);
   static const Color kDarkGreen = Color.fromRGBO(27, 66, 76, 1);
