@@ -24,7 +24,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   bool _loading = false;
   bool _rememberMe = false;
   final _formKey = GlobalKey<FormState>();
-  final Map<String, dynamic> _auth = {"userName": "", "password": ""};
+  final Map<String, dynamic> _auth = {"userName": "", "password": "", "rememberMe": true};
 
   void onSubmit() async {
     if (_formKey.currentState!.validate()) {
@@ -34,8 +34,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         _loading = true;
       });
 
-      print(_auth);
-      // api logic
       await ref.read(loginProvider.notifier).login(_auth);
 
       Future.delayed(const Duration(seconds: 10), () {
@@ -94,49 +92,57 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           const SizedBox(
             height: 80,
           ),
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.next,
-            style: Theme.of(context).textTheme.bodyMedium,
-            initialValue: _auth["userName"],
-            decoration: inputDecoration(
-              context,
-              hintText: AppContent.strEnterEmail,
-              imageIcon: AppImage.imgEmailIcon,
+          Semantics(
+            label: "username",
+            value: "username",
+            child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+              style: Theme.of(context).textTheme.bodyMedium,
+              initialValue: _auth["userName"],
+              decoration: inputDecoration(
+                context,
+                hintText: AppContent.strEnterEmail,
+                imageIcon: AppImage.imgEmailIcon,
+              ),
+              onSaved: (value) {
+                _auth["userName"] = value!;
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return AppContent.strFieldRequired;
+                }
+                return null;
+              },
             ),
-            onSaved: (value) {
-              _auth["userName"] = value!;
-            },
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return AppContent.strFieldRequired;
-              }
-              return null;
-            },
           ),
           const SizedBox(
             height: 28.0,
           ),
-          TextFormField(
-            textInputAction: TextInputAction.done,
-            keyboardType: TextInputType.visiblePassword,
-            style: Theme.of(context).textTheme.bodyMedium,
-            initialValue: _auth['password'],
-            obscureText: true,
-            decoration: inputDecoration(
-              context,
-              hintText: AppContent.strPassword,
-              imageIcon: AppImage.imgLock,
+          Semantics(
+            label: "Password",
+            value: "Password",
+            child: TextFormField(
+              textInputAction: TextInputAction.done,
+              keyboardType: TextInputType.visiblePassword,
+              style: Theme.of(context).textTheme.bodyMedium,
+              initialValue: _auth['password'],
+              obscureText: true,
+              decoration: inputDecoration(
+                context,
+                hintText: AppContent.strPassword,
+                imageIcon: AppImage.imgLock,
+              ),
+              onSaved: (value) {
+                _auth["password"] = value!;
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return AppContent.strFieldRequired;
+                }
+                return null;
+              },         
             ),
-            onSaved: (value) {
-              _auth["password"] = value!;
-            },
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return AppContent.strFieldRequired;
-              }
-              return null;
-            },
           ),
           const SizedBox(
             height: 15.0,
@@ -146,8 +152,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
-                child: CheckboxListTile(
-                  dense: true,
+                child: CheckboxListTile(             
+                  dense: true,                  
                   contentPadding: const EdgeInsets.all(0.0),
                   controlAffinity: ListTileControlAffinity.leading,
                   title: Text(
@@ -160,6 +166,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       _rememberMe = v!;
                     });
                   },
+                  
                 ),
               ),
               TextButton(
@@ -199,7 +206,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               : textBodyLarge(
                   context,
                   label: AppContent.strLoginText,
-                  color: AppColor.kWhite,
+                  color: AppColor.kWhite
                 ),
         ),
         const SizedBox(

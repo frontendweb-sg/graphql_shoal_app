@@ -60,96 +60,112 @@ class _RegisterScreenState extends State<RegisterScreen> {
           const SizedBox(
             height: 80,
           ),
-          TextFormField(
-            keyboardType: TextInputType.text,
-            textInputAction: TextInputAction.next,
-            style: Theme.of(context).textTheme.bodyMedium,
-            initialValue: _form['name'],
-            decoration: inputDecoration(
-              context,
-              hintText: AppContent.strName,
-              imageIcon: AppImage.imgName,
+          Semantics(
+            label: "name",
+            value: "name",
+            child: TextFormField(
+              keyboardType: TextInputType.text,
+              textInputAction: TextInputAction.next,
+              style: Theme.of(context).textTheme.bodyMedium,
+              initialValue: _form['name'],
+              decoration: inputDecoration(
+                context,
+                hintText: AppContent.strName,
+                imageIcon: AppImage.imgName,
+              ),
+              onSaved: (value) {
+                _form['name'] = value!;
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return AppContent.strFieldRequired;
+                }
+                return null;
+              },
             ),
-            onSaved: (value) {
-              _form['name'] = value!;
-            },
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return AppContent.strFieldRequired;
-              }
-              return null;
-            },
           ),
           const SizedBox(
             height: 28.0,
           ),
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.next,
-            style: Theme.of(context).textTheme.bodyMedium,
-            initialValue: _form['email'],
-            decoration: inputDecoration(
-              context,
-              hintText: AppContent.strEnterEmail,
-              imageIcon: AppImage.imgEmailIcon,
+          Semantics(
+            label: "email",
+            value: "email",
+            child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+              style: Theme.of(context).textTheme.bodyMedium,
+              initialValue: _form['email'],
+              decoration: inputDecoration(
+                context,
+                hintText: AppContent.strEnterEmail,
+                imageIcon: AppImage.imgEmailIcon,
+              ),
+              onSaved: (value) {
+                _form['email'] = value!;
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return AppContent.strFieldRequired;
+                }
+                return null;
+              },
             ),
-            onSaved: (value) {
-              _form['email'] = value!;
-            },
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return AppContent.strFieldRequired;
-              }
-              return null;
-            },
           ),
           const SizedBox(
             height: 28.0,
           ),
-          TextFormField(
-            textInputAction: TextInputAction.done,
-            keyboardType: TextInputType.visiblePassword,
-            style: Theme.of(context).textTheme.bodyMedium,
-            initialValue: _form['password'],
-            obscureText: true,
-            decoration: inputDecoration(
-              context,
-              hintText: AppContent.strPassword,
-              imageIcon: AppImage.imgLock,
+          Semantics(
+            label: "password",
+            value: "password",
+            child: TextFormField(
+              textInputAction: TextInputAction.done,
+              keyboardType: TextInputType.visiblePassword,
+              style: Theme.of(context).textTheme.bodyMedium,
+              initialValue: _form['password'],
+              obscureText: true,
+              decoration: inputDecoration(
+                context,
+                hintText: AppContent.strPassword,
+                imageIcon: AppImage.imgLock,
+              ),
+              onSaved: (value) {
+                _form['password'] = value!;
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return AppContent.strFieldRequired;
+                }
+                return null;
+              },
             ),
-            onSaved: (value) {
-              _form['password'] = value!;
-            },
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return AppContent.strFieldRequired;
-              }
-              return null;
-            },
           ),
           const SizedBox(
             height: 28.0,
           ),
-          TextFormField(
-            textInputAction: TextInputAction.done,
-            keyboardType: TextInputType.visiblePassword,
-            style: Theme.of(context).textTheme.bodyMedium,
-            initialValue: _form['confirmPassword'],
-            obscureText: true,
-            decoration: inputDecoration(
-              context,
-              hintText: AppContent.strConfirmPassword,
-              imageIcon: AppImage.imgLock,
+          Semantics(
+            label: "confirmPassword",
+            value: "confirmPassword",
+            child: TextFormField(
+              textInputAction: TextInputAction.done,
+              keyboardType: TextInputType.visiblePassword,
+              style: Theme.of(context).textTheme.bodyMedium,
+              initialValue: _form['confirmPassword'],
+              obscureText: true,
+              decoration: inputDecoration(
+                context,
+                hintText: AppContent.strConfirmPassword,
+                imageIcon: AppImage.imgLock,
+              ),
+              onSaved: (value) {
+                _form['confirmPassword'] = value!;
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return AppContent.strFieldRequired;
+                }
+                return null;
+              },
             ),
-            onSaved: (value) {
-              _form['confirmPassword'] = value!;
-            },
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return AppContent.strFieldRequired;
-              }
-              return null;
-            },
           ),
           const SizedBox(
             height: 20,
