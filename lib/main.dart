@@ -5,6 +5,8 @@ import 'package:graphql_shoal_app/core/constants/contents.dart';
 import 'package:graphql_shoal_app/core/services/storage_service.dart';
 import 'package:graphql_shoal_app/features/auth/presentation/pages/login_screen.dart';
 import 'package:graphql_shoal_app/features/home/presentation/pages/home_screen.dart';
+import 'package:graphql_shoal_app/features/nps/presentation/pages/other_details.dart';
+import 'package:graphql_shoal_app/features/nps/presentation/pages/personal_details.dart';
 import 'package:graphql_shoal_app/features/splash/presentation/pages/splash_screen.dart';
 import 'package:graphql_shoal_app/globals.dart';
 import 'package:graphql_shoal_app/shared/providers/theme_riverpod.dart';
@@ -46,7 +48,7 @@ class MyApp extends ConsumerWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ref.watch(themeProvider) ? ThemeMode.dark : ThemeMode.light,
-      home: screen,
+      home: const NPSPersonalDetailsScreen(),
     );
   }
 }

@@ -241,3 +241,17 @@ Widget textLabelLarge(
         ),
   );
 }
+
+Widget radioButtonHeading(BuildContext context,
+    {required String label,
+    Color? color = AppColor.kBodyText,
+    FontWeight? fontWeight = FontWeight.normal,
+    TextAlign? align}) {
+  return Text(
+    label,
+    textAlign: align,
+    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+          color: color,
+        ),
+  );
+}

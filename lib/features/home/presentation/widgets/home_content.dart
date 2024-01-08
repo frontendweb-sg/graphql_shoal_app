@@ -7,6 +7,8 @@ import 'package:graphql_shoal_app/core/constants/images.dart';
 import 'package:graphql_shoal_app/features/home/presentation/widgets/horizontal_panel.dart';
 import 'package:graphql_shoal_app/features/home/presentation/widgets/panel.dart';
 import 'package:graphql_shoal_app/features/loan/presentation/pages/loan_screen.dart';
+import 'package:graphql_shoal_app/features/nps/presentation/pages/other_details.dart';
+import 'package:graphql_shoal_app/features/nps/presentation/pages/personal_details.dart';
 import 'package:graphql_shoal_app/shared/widgets/horizontal_panel.dart';
 import 'package:graphql_shoal_app/shared/widgets/typography.dart';
 
@@ -57,7 +59,7 @@ class HomeScreenContent extends ConsumerWidget {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (builder) => const LoanScreen(),
+                            builder: (builder) => const NPSOtherDetailsScreen(),
                           ),
                         );
                       },

@@ -30,6 +30,7 @@ class AppContent {
   static const strHaveAccount = "Already have an account?";
   static const strBackTologin = "Back to login";
   static const strPersonalDetails = "Personal Details";
+  static const strParentalDetails = "Parental Details";
   static const strUploadDocument = "Upload Document";
   static const strEducationLevel = "Education Level";
   static const strFormIdentification = "Form of identification";
@@ -45,6 +46,17 @@ class AppContent {
   static const strSharingCaring = "Sharing is caring!";
   static const strShareContent =
       "Share the same account upto 5 members by adding them into your family list.";
+
+// NPS screens 
+  static const strProfOfAddress = "Proof Of Address";
+  static const strCorrespondenceAddress = "Correspondence Address";  
+  static const strPermanentAddress = "Permanent Address";
+  static const strFormOfIdentification = "Form of Identification";
+  static const strOccupationDetails = "Occupation Details";
+  static const strIncomeRange = "Income Range (per annum)";
+  static const strEducationalQualifications = "Educational Qualifications";
+  static const strIfApplicable = "Please Tick If Applicable";
+
 
 // error handler
   static const strNoRouteFound = "no_route_found";
