@@ -46,7 +46,7 @@ class MyApp extends ConsumerWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ref.watch(themeProvider) ? ThemeMode.dark : ThemeMode.light,
-      home: screen,
+      home: const LoginScreen(),
     );
   }
 }

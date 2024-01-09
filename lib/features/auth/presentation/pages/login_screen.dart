@@ -92,10 +92,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           const SizedBox(
             height: 80,
           ),
-          Semantics(
-            label: "username",
-            value: "username",
-            child: TextFormField(
+            TextFormField(   
+               key: const Key("username"),           
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
               style: Theme.of(context).textTheme.bodyMedium,
@@ -113,16 +111,14 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   return AppContent.strFieldRequired;
                 }
                 return null;
-              },
+              },       
             ),
-          ),
+
           const SizedBox(
             height: 28.0,
           ),
-          Semantics(
-            label: "Password",
-            value: "Password",
-            child: TextFormField(
+              TextFormField(
+              key: const Key("password"),
               textInputAction: TextInputAction.done,
               keyboardType: TextInputType.visiblePassword,
               style: Theme.of(context).textTheme.bodyMedium,
@@ -141,9 +137,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   return AppContent.strFieldRequired;
                 }
                 return null;
-              },         
-            ),
-          ),
+              },                    
+            ),   
           const SizedBox(
             height: 15.0,
           ),
@@ -166,7 +161,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       _rememberMe = v!;
                     });
                   },
-                  
+                  key: const Key("rememberMe"),
                 ),
               ),
               TextButton(
@@ -200,6 +195,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       children: [
         button(
           context,
+          label: "login",
+          key: "Submit",
           onPressed: onSubmit,
           child: _loading
               ? const CircularProgressIndicator()

@@ -22,6 +22,7 @@ Widget button(
   double? width = double.infinity,
   ButtonStyle? style,
   double? elevation = 5.0,
+  String? key,
 }) {
   bgColor = bgColor ??
       (variant == Variant.outlined
@@ -73,6 +74,7 @@ Widget button(
 
 Widget filledButton(BuildContext context,
     {required Function() onPressed,
+    String? key,
     String? label,
     Widget? child,
     Color? bgColor,
@@ -99,6 +101,7 @@ Widget filledButton(BuildContext context,
             backgroundColor: MaterialStatePropertyAll(bgColor!),
             foregroundColor: MaterialStatePropertyAll(textColor!),
           ),
+      key: Key("$key"),    
       child: child ?? textLabelLarge(context, label: label!, color: textColor),
     ),
   );
