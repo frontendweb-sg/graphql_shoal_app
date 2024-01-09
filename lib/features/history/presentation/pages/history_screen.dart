@@ -125,72 +125,72 @@ class _HistoryScreenState extends State<HistoryScreen> {
               
               const SizedBox(height: 30.0),
               
-              DropdownButtonHideUnderline(
-                      child: DropdownButton<Object>(
-                        isExpanded: true,
-                        isDense: true,
-                        menuMaxHeight: 350,
-                        value: formelements['title'],
-                        items:dropDownItems.map((data) {
-                          return DropdownMenuItem(
-                            value: data['value'],
-                            child: Text(data['title']),
-                          );
-                        }).toList(),
-                        onChanged:(selectedValue) {
-                          setState(() {
-                            selectedValue
-                          });
-                        }                       
-                      ),
-                    ),
+              // DropdownButtonHideUnderline(
+              //         child: DropdownButton<Object>(
+              //           isExpanded: true,
+              //           isDense: true,
+              //           menuMaxHeight: 350,
+              //           value: formelements['title'],
+              //           items:dropDownItems.map((data) {
+              //             return DropdownMenuItem(
+              //               value: data['value'],
+              //               child: Text(data['title']),
+              //             );
+              //           }).toList(),
+              //           onChanged:(selectedValue) {
+              //             setState(() {
+              //               selectedValue = value!;
+              //             });
+              //           }                       
+              //         ),
+              //       ),
               
               const SizedBox(height: 30.0),
               
-              // calendar(
-              //   context,
-              //   labelText: "DOB", 
-              //   controller: _textEditingController,
-              //   ),
+              calendar(
+                context,
+                labelText: "DOB", 
+                controller: _textEditingController,
+                ),
               
             
               
-              //  const SizedBox(height: 30.0),   
+               const SizedBox(height: 30.0),   
               
-              //   Autocomplete<String>(              
-              //     optionsBuilder: (TextEditingValue fruitTextEditingValue) { 
-              //       if (fruitTextEditingValue.text == '') { 
-              //         return const Iterable<String>.empty(); 
-              //       } 
-              //       return _fruitOptions.where((String option) { 
-              //         return option 
-              //             .contains(fruitTextEditingValue.text.toLowerCase()); 
-              //       }); 
-              //     }, 
-              //       onSelected: (String value) { 
-              //         debugPrint('You just selected $value'); 
-              //       }, 
-              //     ), 
+                Autocomplete<String>(              
+                  optionsBuilder: (TextEditingValue fruitTextEditingValue) { 
+                    if (fruitTextEditingValue.text == '') { 
+                      return const Iterable<String>.empty(); 
+                    } 
+                    return _fruitOptions.where((String option) { 
+                      return option 
+                          .contains(fruitTextEditingValue.text.toLowerCase()); 
+                    }); 
+                  }, 
+                    onSelected: (String value) { 
+                      debugPrint('You just selected $value'); 
+                    }, 
+                  ), 
               
-              //     const SizedBox(height: 30.0),  
+                  const SizedBox(height: 30.0),  
               
-              //     DropdownButton( 
+                  DropdownButton( 
                   
-              //       value: dropdownvalue, 
-              //       icon: const Icon(Icons.keyboard_arrow_down),     
-              //       items: dropitems.map((String items) { 
-              //         return DropdownMenuItem( 
-              //           value: items, 
-              //           child: Text(items), 
-              //         ); 
-              //       }).toList(), 
+                    value: dropdownvalue, 
+                    icon: const Icon(Icons.keyboard_arrow_down),     
+                    items: dropitems.map((String items) { 
+                      return DropdownMenuItem( 
+                        value: items, 
+                        child: Text(items), 
+                      ); 
+                    }).toList(), 
               
-              //         onChanged: (String? newValue) {  
-              //           setState(() { 
-              //             dropdownvalue = newValue!; 
-              //           }); 
-              //         }, 
-              // ), 
+                      onChanged: (String? newValue) {  
+                        setState(() { 
+                          dropdownvalue = newValue!; 
+                        }); 
+                      }, 
+              ), 
 
                 const SizedBox(height: 30.0),
 
