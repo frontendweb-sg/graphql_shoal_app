@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_shoal_app/shared/widgets/button.dart';
-import 'package:graphql_shoal_app/shared/widgets/calender.dart';
-import 'package:graphql_shoal_app/shared/widgets/dropdown.dart';
 import 'package:graphql_shoal_app/shared/widgets/switchbutton.dart';
+import 'package:intl/intl.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
@@ -13,20 +12,17 @@ class HistoryScreen extends StatefulWidget {
 
 class _HistoryScreenState extends State<HistoryScreen> {
 
-  bool checkBoxValue = true;
-  int radioBtnValue = 2;
-  bool switchButtonValue = true;  
-
   final _formKey = GlobalKey<FormState>();
-    final Map<String, dynamic> formelements = {"Gender": false, "SelectedGender": 1, "Terms": true, "title": "Amit"};
+   final Map<String, dynamic> formelements = {"Gender": false, "SelectedGender": 2, "Terms": false, "fruits": "orange", "name": "2", "itemsvalue": "Item 4"};
 
   void onSubmit() async {
     print(formelements);
-  }
+    }
 
+  bool checkBoxValue = false;
+  String radioBtnValue = "male";
   String defultDropDownValue =  "Amit";
-  
-  final dropDownItems = [
+  List<Map<String, dynamic>> dropDownItems = [
     {"title": "Amit", "value": "1"},
     {"title": "Vinay", "value": "2"},
     {"title": "Pradeep", "value": "3"},
@@ -53,9 +49,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
     'Item 5', 
   ];
 
- 
+  bool switchButtonValue = false;  
 
-  TextEditingController _textEditingController = TextEditingController();  
+  TextEditingController _textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +62,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
               key: _formKey,
               child: Column(
               children: [
-              
               CheckboxListTile(
                   contentPadding: const EdgeInsets.all(0.0),
                   controlAffinity: ListTileControlAffinity.leading,
@@ -74,7 +69,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   value: formelements['Gender'],
                   onChanged: (value) {
                     setState(() {
-                      formelements['checkBoxValue'] = value!;
+                      formelements['Gender'] = value!;
                     });
                   }),
               
@@ -90,7 +85,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     groupValue: formelements['SelectedGender'],
                     onChanged: (value) {
                       setState(() {
-                        formelements['radioBtnValue'] = value!;
+                        formelements['SelectedGender'] = value!;
                       });
                     },
                   ),
@@ -104,7 +99,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     groupValue: formelements['SelectedGender'],
                     onChanged: (value) {
                       setState(() {
-                        formelements['radioBtnValue'] = value!;
+                        formelements['SelectedGender'] = value!;
                       });
                     },
                   ),
@@ -119,89 +114,115 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   value: formelements['Terms'], 
                   onChanged: (value){
                     setState(() {
-                      formelements['switchButtonValue'] = value;
+                      formelements['Terms'] = value;
                     });
                   }),
               
+              const SizedBox(height: 30.0),    
+              
+                    DropdownButtonHideUnderline(
+                        child: DropdownButton<Object>(
+                          // key: Key("$key"),
+                          isExpanded: true,
+                          isDense: true,
+                          menuMaxHeight: 350,
+                          value: formelements["name"],
+                          items:dropDownItems.map((data) {
+                            return DropdownMenuItem(
+                              value: data['value'],
+                              child: Text(data['title']),
+                            );
+                          }).toList(),
+                          onChanged:(value) {
+                            setState(() {
+                            formelements["name"] = value.toString();
+                            });
+                          }                       
+                        ),
+                      ),
+              
+                     
               const SizedBox(height: 30.0),
               
-              // DropdownButtonHideUnderline(
-              //         child: DropdownButton<Object>(
-              //           isExpanded: true,
-              //           isDense: true,
-              //           menuMaxHeight: 350,
-              //           value: formelements['title'],
-              //           items:dropDownItems.map((data) {
-              //             return DropdownMenuItem(
-              //               value: data['value'],
-              //               child: Text(data['title']),
-              //             );
-              //           }).toList(),
-              //           onChanged:(selectedValue) {
-              //             setState(() {
-              //               selectedValue = value!;
-              //             });
-              //           }                       
-              //         ),
-              //       ),
+              TextField(
+                      key: const Key("calender"),               
+                      controller: _textEditingController,               
+                      decoration: const InputDecoration(                        
+                          suffixIcon: Icon(Icons.calendar_today),
+                          labelText: "DOB",
+                          ),
+                      readOnly:true,
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(1900),
+                            lastDate: DateTime(2100));                      
+                        if (pickedDate != null) {                  
+                          String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate); 
+                           setState(() {
+                            _textEditingController.text = formattedDate;
+                            formelements["dob"] = formattedDate;
+                          });                   
+                        }                      
+                      }),
               
-              const SizedBox(height: 30.0),
-              
-              calendar(
-                context,
-                labelText: "DOB", 
-                controller: _textEditingController,
-                ),
-              
-            
-              
-               const SizedBox(height: 30.0),   
-              
-                Autocomplete<String>(              
-                  optionsBuilder: (TextEditingValue fruitTextEditingValue) { 
-                    if (fruitTextEditingValue.text == '') { 
-                      return const Iterable<String>.empty(); 
-                    } 
-                    return _fruitOptions.where((String option) { 
-                      return option 
-                          .contains(fruitTextEditingValue.text.toLowerCase()); 
-                    }); 
-                  }, 
-                    onSelected: (String value) { 
-                      debugPrint('You just selected $value'); 
-                    }, 
-                  ), 
-              
-                  const SizedBox(height: 30.0),  
-              
-                  DropdownButton( 
-                  
-                    value: dropdownvalue, 
+               const SizedBox(height: 30.0),             
+                       
+                 DropdownButton(                
+                    value: formelements['itemsvalue'], 
                     icon: const Icon(Icons.keyboard_arrow_down),     
                     items: dropitems.map((String items) { 
                       return DropdownMenuItem( 
                         value: items, 
                         child: Text(items), 
                       ); 
-                    }).toList(), 
-              
-                      onChanged: (String? newValue) {  
+                    }).toList(),
+                      onChanged: (newValue) {
                         setState(() { 
-                          dropdownvalue = newValue!; 
+                          formelements['itemsvalue'] = newValue!; 
                         }); 
                       }, 
-              ), 
-
-                const SizedBox(height: 30.0),
-
-                    button(
+                  ), 
+              
+                 const SizedBox(height: 30.0),
+              
+                 const Text("enter Fruit name:"),
+                Autocomplete<String>(            
+                  key: const Key("autocomplete"),  
+                  optionsBuilder: (TextEditingValue fruitTextEditingValue) {               
+                if (fruitTextEditingValue.text == '') { 
+                  return const Iterable<String>.empty(); 
+                }
+                return _fruitOptions.where((String option) { 
+                  return option 
+                      .contains(fruitTextEditingValue.text.toLowerCase()); 
+                }); 
+              },
+              fieldViewBuilder: (context, textEditingController,
+                        focusNode, onFieldSubmitted){
+                    textEditingController.text = formelements['fruits'];// You can use the next snip of code if you dont want the initial text to come when you use setState((){});  
+                    return TextFormField(                             
+                  controller: textEditingController,//uses fieldViewBuilder TextEditingController
+                   focusNode: focusNode,
+                );
+              },
+              onSelected: (String value) { 
+                formelements['fruits'] = value; 
+              }, 
+                        ), 
+              
+                  const SizedBox(height: 30.0),  
+                button(
                       context,
                       label: "Submit",
                       onPressed: onSubmit,                    
                     ),
 
+              
+              
                         ],
-                      ),
+              ),
             )),
       ),
     );
